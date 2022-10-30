@@ -4,11 +4,52 @@ body {
     background-attachment: fixed;
     background-color: black;
     background-position: 50%;
-    background-size: 75%
+    background-size: 75%;
+    overflow: hidden;
   }
 
 .ship{
     z-index: 1000000;
     width: 10%;
+<<<<<<< HEAD
     position: relative;
   }
+=======
+  }
+
+.planet1 {
+    position: fixed;
+    bottom: 60%;
+    right: -25%;
+    width: 850px;
+  }
+
+  .planet2 {
+    position: fixed;
+    bottom: 65%;
+    right: 40%;
+    width: 250px;
+  }
+
+  .planet3 {
+    position: fixed;
+    bottom: 10%;
+    right: 52%;
+    width: 400px;
+  }
+
+  .planet4 {
+    position: fixed;
+    bottom: 45%;
+    right: 75%;
+    width: 400px;
+  }
+
+  .planet5 {
+    position: fixed;
+    bottom: 5%;
+    right: -5%;
+    width: 600px;
+  }
+  
+>>>>>>> ed99be0f63fda75bffe7a1045ba9db3377f6af50
