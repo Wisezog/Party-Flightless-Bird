@@ -6,6 +6,7 @@
     <title>Hello World!</title>
     <link rel="stylesheet" href="../planet.css">
     <script type="text/javascript" src='./chat-room-planet.js'></script>
+    <script type="text/javascript" src='../planets/alien.js'></script>
     <style>
         body {
             background: url('../planets/planetGround4.png');
@@ -15,11 +16,28 @@
             background-size: 100%;
             overflow: hidden;
         }
+
+        .ship {
+            width: 40%;
+            position: fixed;
+            bottom: 10%;
+            right: 83%
+        }
+
+        .alien {
+            z-index: 1000000;
+            width: 5%;
+            position:fixed;
+            top: 50%;
+            right: 80%;
+            display: none;
+        }
     </style>
 </head>
 
 <body>
     <img src="../hub-img/ship.png" class="ship" id="ship">
+    <img src="../hub-img/alien.png" class="alien" id="alien">
 </body>
 
 </html>

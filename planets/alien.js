@@ -29,11 +29,11 @@ function detectKey(event) {
 function moveAlien(direction) {
     //Retrieves current x-coordinate of the alien.
     let alien = document.getElementById("alien");
-    let positionX = Number((alien.style.left).replace("px", ""));
+    let positionX = Number((alien.style.left).replace("%", ""));
     
     
     //Increase this value to increase movement speed
-    const moveAmount = 10;
+    const moveAmount = 0.5;
     
 
     switch (direction) {
@@ -41,17 +41,18 @@ function moveAlien(direction) {
             //Move the alien left.
             positionX = positionX - moveAmount;
             console.log("left: " + positionX);
-            alien.style.left = positionX + "px";
+            alien.style.left = positionX + "%";
             
             break;
         case "right":
             //Move the alien right.
             positionX = positionX + moveAmount;
             console.log("right: " + positionX);
-            alien.style.left = positionX + "px";
+            alien.style.left = positionX + "%";
             
             break;
     }
+    alien.style.display = "block";
 }
 
 /**

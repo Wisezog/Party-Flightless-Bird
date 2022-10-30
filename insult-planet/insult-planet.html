@@ -4,8 +4,9 @@
 <head>
 
     <title>Hello World!</title>
-    <link rel="stylesheet" href="planet.css">
+    <link rel="stylesheet" href="../planet.css">
     <script type="text/javascript" src='./insult-planet.js'></script>
+    <script type="text/javascript" src='../planets/alien.js'></script>
     <style>
         body {
             background: url('../planets/planetGround3.png');
@@ -15,6 +16,23 @@
             background-size: 100%;
             overflow: hidden;
         }
+
+        .ship {
+            width: 40%;
+            position: fixed;
+            bottom: 10%;
+            right: 83%
+        }
+
+        .alien {
+            z-index: 1000000;
+            width: 5%;
+            position:fixed;
+            top: 50%;
+            right: 80%;
+            display: none;
+        }
+
     </style>
 </head>
 
@@ -23,7 +41,7 @@
 
     <h1 id="insult" style="color: white; text-align:center;">Click here to recieve an insult.<br><br></h1>
 
-    <button onclick="insultDisplay()" style="align-items: center; bottom: 50%;">Recieve Insult</button>
+    <button onclick="insultDisplay()" style="align-items: center; bottom: 50%; position: fixed;">Recieve Insult</button>
 
     <script>
 
@@ -35,6 +53,10 @@
         }
 
     </script>
+
+    <img src="../hub-img/ship.png" class="ship" id="ship">
+    <img src="../hub-img/alien.png" class="alien" id="alien">
+
 </body>
 
 </html>
