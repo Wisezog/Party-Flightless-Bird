@@ -5,13 +5,36 @@
 
     <title>Hello World!</title>
     <link rel="stylesheet" href="planet.css">
-    <script src='./insult-planet.js'></script>
-
+    <script type="text/javascript" src='./insult-planet.js'></script>
+    <style>
+        body {
+            background: url('../planets/planetGround3.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: 50%;
+            background-size: 100%;
+            overflow: hidden;
+        }
+    </style>
 </head>
-    
-<h1>insult()</h1>
+
+<body>
 
 
+    <h1 id="insult" style="color: white; text-align:center;">Click here to recieve an insult.<br><br></h1>
+
+    <button onclick="insultDisplay()" style="align-items: center; bottom: 50%;">Recieve Insult</button>
+
+    <script>
+
+        // Method reads in list of insults, one per line
+        // Async as need to be done before rest as fetch needs await.
+        async function insultDisplay() {
+            file = await fetch('./insult.txt').then(x => x.text())  // Parses the file to text.
+            document.getElementById("insult").innerHTML = insult(file) // Sets the header to be equal to the output of the insult() function in js.
+        }
+
+    </script>
 </body>
 
 </html>
