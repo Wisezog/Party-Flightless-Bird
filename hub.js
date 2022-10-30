@@ -1,14 +1,17 @@
 'use strict';
 
-window.addEventListener("keydown", detectKey);
 //Listens for key presses. 
+window.addEventListener("keydown", detectKey);
 
 
 
-function defaultShip(){
+/**
+ * Defaults the ship to a postion in the middle of the planets
+ */
+function defaultShip() {
     let ship = document.getElementById("ship");
     ship.style.left = "500px";
-    ship.style.top = "300px";    
+    ship.style.top = "300px";
 }
 
 
@@ -48,46 +51,55 @@ function detectKey(event) {
  * @param {*} direction in which the ship will be moved in.
  */
 function moveShip(direction) {
+    //Retrieves current 'coordinates' of the ship.
     let ship = document.getElementById("ship");
     let positionY = Number((ship.style.top).replace("px", ""));
     let positionX = Number((ship.style.left).replace("px", ""));
-    //Retrieves current 'coordinates' of the ship.
 
-    const moveAmount = 10;
     //Increase this value to increase movement speed
+    const moveAmount = 10;
+
 
     switch (direction) {
         case "up":
+            //Moves the ship up.
             positionY = positionY - moveAmount;
             console.log("up: " + positionY);
             ship.style.top = positionY + "px";
-            //Moves the ship up.
+
             break;
         case "down":
+            //Moves the ship down.
             positionY = positionY + moveAmount;
             console.log("down: " + positionY);
             ship.style.top = positionY + "px";
-            //Moves the ship down.
+
             break;
         case "left":
+            //Move the ship left.
             positionX = positionX - moveAmount;
             console.log("left: " + positionX);
             ship.style.left = positionX + "px";
-            //Move the ship left.
+
             break;
         case "right":
+            //Move the ship right.
             positionX = positionX + moveAmount;
             console.log("right: " + positionX);
             ship.style.left = positionX + "px";
-            //Move the ship right.
+
             break;
     }
 }
 
+/**
+ * Visits a planet depending on the position of the alien.
+ */
 function visitPlanet() {
+    //Gets the hit boxes of the planets and the ship.
     let ship = document.getElementById("ship");
     let shipHitBox = ship.getBoundingClientRect();
-    
+
     let planet1 = document.getElementById("planet1");
     let planet1HitBox = planet1.getBoundingClientRect();
 
@@ -104,6 +116,7 @@ function visitPlanet() {
     let planet5HitBox = planet5.getBoundingClientRect();
 
 
+    //Compares the location of the ship and the planets
     if (compareLocation(shipHitBox, planet1HitBox)) {
         window.location.href = "./party-planet/party-planet.html";
     } else if (compareLocation(shipHitBox, planet2HitBox)) {
@@ -120,8 +133,14 @@ function visitPlanet() {
 
 }
 
+/**
+ * Compares the hit boxes of a ship and planet
+ * @param {*} ship 
+ * @param {*} planet 
+ * @returns 
+ */
 function compareLocation(ship, planet) {
-    if(ship.x > planet.x && ship.y > planet.y && ship.right < planet.right && ship.bottom < planet.bottom){
+    if (ship.x > planet.x && ship.y > planet.y && ship.right < planet.right && ship.bottom < planet.bottom) {
         return true;
     }
 

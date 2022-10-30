@@ -1,6 +1,5 @@
-window.addEventListener("keydown", detectKey);
 //Listens for key presses. 
-
+window.addEventListener("keydown", detectKey);
 
 /**
  * Checks which key was pressed, and calls any associated functionality.
@@ -18,7 +17,7 @@ function detectKey(event) {
             break;
         case 32:
             //Space bar
-            console.log("Space Pressed");
+            leavePlanet()
             break;
     }
 }
@@ -28,25 +27,62 @@ function detectKey(event) {
  * @param {*} direction in which the alien will be moved in.
  */
 function moveAlien(direction) {
+    //Retrieves current x-coordinate of the alien.
     let alien = document.getElementById("alien");
     let positionX = Number((alien.style.left).replace("px", ""));
-    //Retrieves current x-coordinate of the alien.
-
-    const moveAmount = 10;
+    
+    
     //Increase this value to increase movement speed
+    const moveAmount = 10;
+    
 
     switch (direction) {
         case "left":
+            //Move the alien left.
             positionX = positionX - moveAmount;
             console.log("left: " + positionX);
             alien.style.left = positionX + "px";
-            //Move the alien left.
+            
             break;
         case "right":
+            //Move the alien right.
             positionX = positionX + moveAmount;
             console.log("right: " + positionX);
             alien.style.left = positionX + "px";
-            //Move the alien right.
+            
             break;
     }
+}
+
+/**
+ * Function to leave a planet and return to the hub.
+ */
+function leavePlanet() {
+    //Gets the "hit box" or alien and planet.
+    let alien = document.getElementById("alien");
+    let alienHitBox = alien.getBoundingClientRect();
+
+    let ship = document.getElementById("ship");
+    let shipHitBox = ship.getBoundingClientRect();
+
+    //Checks if alien is inside the ships hit box
+    if (compareLocation(alienHitBox, shipHitBox)) {
+        window.location.href = "../hub.html";
+    } else {
+        console.log("No ship found")
+    }
+
+}
+
+/**
+ * Checks if location of the alien and ship
+ * @param {*} alien 
+ * @param {*} ship 
+ * @returns 
+ */
+function compareLocation(alien, ship) {
+    if (alien.x > ship.x && alien.y > ship.y && alien.right < ship.right && alien.bottom < ship.bottom) {
+        return true;
+    }
+
 }
