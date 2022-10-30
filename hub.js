@@ -1,10 +1,15 @@
 'use strict';
 
 window.addEventListener("keydown",detectKey);
+//Listens for key presses.
 
-function detectKey(key){
+/**
+ * Checks which key was pressed, and calls any associated functionality.
+ * @param {*} event the event of a key press being detected. 
+ */
+function detectKey(event){
     
-    switch(key.keyCode){
+    switch(event.keyCode){
         case 38:
             //up arrow
             moveShip("up");
@@ -22,7 +27,9 @@ function detectKey(key){
             moveShip("right");
             break;
         case 32:
-            alert("Space pressed");
+            //Space bar
+            console.log("Space Pressed");
+            visitPlanet();
             break;             
     }
 }
@@ -66,4 +73,54 @@ function moveShip(direction){
             //Move the ship right.
             break;
     }
+}
+
+function visitPlanet(){
+    let ship = document.getElementById("ship");
+    let shipCoordinates = [ship.offsetLeft,ship.offsetTop]
+
+    let planet1 = document.getElementById("planet1");
+    let planet1Coordinates = [planet1.offsetLeft,planet1.offsetTop]
+
+    let planet2 = document.getElementById("planet2");
+    let planet2Coordinates = [planet2.offsetLeft,planet2.offsetTop]
+
+    let planet3 = document.getElementById("planet3");
+    let planet3Coordinates = [planet3.offsetLeft,planet3.offsetTop]
+
+    let planet4 = document.getElementById("planet4");
+    let planet4Coordinates = [planet4.offsetLeft,planet4.offsetTop]
+
+    let planet5 = document.getElementById("planet5");
+    let planet5Coordinates = [planet5.offsetLeft,planet5.offsetTop]
+
+    if(compareLocation(shipCoordinates,planet1Coordinates)){
+        window.location.href = "./party-planet/party-planet.html";
+    }else if(compareLocation(shipCoordinates,planet2Coordinates)){
+        window.location.href = "./snake-planet/snake-planet.html";
+    }else if(compareLocation(shipCoordinates,planet3Coordinates)){
+        window.location.href = "./insult-planet/insult-planet.html";
+    }else if(compareLocation(shipCoordinates,planet4Coordinates)){
+        window.location.href = "./chat-room-planet/chat-room-planet.html";
+    }else if(compareLocation(shipCoordinates,planet5Coordinates)){
+        window.location.href = "./connect-4-planet/connect-4-planet.html";
+    }else{
+        console.log("No planet found")
+    }
+    
+}
+
+function compareLocation(ship,planet){
+    let matching = false;
+    const range = 20;
+
+    for(let i = 0; i < 2; i++){
+        if(ship[i] <= (planet[i]+ range) && ship[i] >= (planet[i]- range)){
+            matching = true;
+        }else{
+            matching = false
+        }
+    }
+    return matching;
+    
 }
