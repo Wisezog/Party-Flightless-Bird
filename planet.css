@@ -1,0 +1,5 @@
+.ship {
+    z-index: 1000000;
+    width: 10%;
+    position: relative;
+  }
