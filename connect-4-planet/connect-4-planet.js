@@ -62,14 +62,6 @@ function checkWin(currentPlayer,cell) {
         }
     }
 
-    makeArray()
+   
 }
 
-function callError() {
-
-}
-
-function makeArray(){
-
-    document.getElementsByClassName('grid') = array;
-}
