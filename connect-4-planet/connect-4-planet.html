@@ -6,7 +6,7 @@
     <title>Connect 4</title>
     <link rel="stylesheet" href="../planet.css">
     <script type="text/javascript" src='./insult-planet.js'></script>
-    <script type="text/javascript" src ='../planets/alien.js'></script>
+    <script type="text/javascript" src='../planets/alien.js'></script>
     <style>
         body {
             background: url('../planets/planetGround5.png');
@@ -16,6 +16,7 @@
             background-size: 100%;
             overflow: hidden;
         }
+
         .ship {
             width: 40%;
             position: fixed;
@@ -26,10 +27,24 @@
         .alien {
             z-index: 1000000;
             width: 5%;
-            position:fixed;
+            position: fixed;
             top: 50%;
             right: 80%;
             display: none;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            position: fixed;
+            top: 25%;
+            right: 50%;
+
+        }
+
+        div>div {
+            padding: 10px;
+            background-color: #ccc;
         }
     </style>
 </head>
@@ -37,6 +52,19 @@
 <body>
     <img src="../hub-img/ship.png" class="ship" id="ship">
     <img src="../hub-img/alien.png" class="alien" id="alien">
+
+
+    <div class="grid">
+        <div><input type="button" class="cell" id="cell1" value="E"></div>
+        <div><input type="button" class="cell" id="cell2" value="E"></div>
+        <div><input type="button" class="cell" id="cell3" value="E"></div>
+        <div><input type="button" class="cell" id="cell4" value="E"></div>
+        <div><input type="button" class="cell" id="cell5" value="E"></div>
+        <div><input type="button" class="cell" id="cell6" value="E"></div>
+        <div><input type="button" class="cell" id="cell7" value="E"></div>
+        <div><input type="button" class="cell" id="cell8" value="E"></div>
+        <div><input type="button" class="cell" id="cell9" value="E"></div>
+    </div>
 </body>
 
 </html>
