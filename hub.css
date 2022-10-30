@@ -11,11 +11,9 @@ body {
 .ship{
     z-index: 1000000;
     width: 10%;
-<<<<<<< HEAD
     position: relative;
   }
-=======
-  }
+  
 
 .planet1 {
     position: fixed;
@@ -52,4 +50,3 @@ body {
     width: 600px;
   }
   
->>>>>>> ed99be0f63fda75bffe7a1045ba9db3377f6af50
