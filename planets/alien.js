@@ -7,6 +7,10 @@ window.addEventListener("keydown", detectKey);
  */
 function detectKey(event) {
     switch (event.keyCode) {
+        case 38:
+            //up arrow
+            moveAlien("jump")
+            break;
         case 37:
             //left arrow
             moveAlien("left");
@@ -31,7 +35,6 @@ function moveAlien(direction) {
     let alien = document.getElementById("alien");
     let positionX = Number((alien.style.left).replace("%", ""));
     
-    
     //Increase this value to increase movement speed
     const moveAmount = 0.5;
     
@@ -49,8 +52,9 @@ function moveAlien(direction) {
             positionX = positionX + moveAmount;
             console.log("right: " + positionX);
             alien.style.left = positionX + "%";
-            
+    
             break;
+
     }
     alien.style.display = "block";
 }

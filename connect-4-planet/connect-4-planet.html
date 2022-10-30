@@ -33,6 +33,19 @@
             display: none;
         }
 
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            position: fixed;
+            top: 25%;
+            right: 50%;
+
+        }
+
+        div>div {
+            padding: 10px;
+            background-color: #ccc;
+        }
     </style>
 </head>
 
@@ -40,15 +53,18 @@
     <img src="../hub-img/ship.png" class="ship" id="ship">
     <img src="../hub-img/alien.png" class="alien" id="alien">
 
-   
 
-
-    <script>
-        function reload(){
-            document.getElementsByClassName('grid') = makeArray();
-        }
-
-    </script>
+    <div class="grid" id="grid">
+        <div><input type="button" class="cell" id="cell0" value="0" onclick="play(0)"></div>
+        <div><input type="button" class="cell" id="cell1" value="0" onclick="play(1)"></div>
+        <div><input type="button" class="cell" id="cell2" value="0" onclick="play(2)"></div>
+        <div><input type="button" class="cell" id="cell3" value="0" onclick="play(3)"></div>
+        <div><input type="button" class="cell" id="cell4" value="0" onclick="play(4)"></div>
+        <div><input type="button" class="cell" id="cell5" value="0" onclick="play(5)"></div>
+        <div><input type="button" class="cell" id="cell6" value="0" onclick="play(6)"></div>
+        <div><input type="button" class="cell" id="cell7" value="0" onclick="play(7)"></div>
+        <div><input type="button" class="cell" id="cell8" value="0" onclick="play(8)"></div>
+    </div>
 </body>
 
 </html>
