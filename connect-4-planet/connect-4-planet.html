@@ -5,11 +5,7 @@
 
     <title>Connect 4</title>
     <link rel="stylesheet" href="../planet.css">
-<<<<<<< HEAD
-    <script type="text/javascript" src='./insult-planet.js'></script>
-=======
     <script type="text/javascript" src='./connect-4-planet.js'></script>
->>>>>>> 3875fcc292dbe082cc9488fb33a5119275f95afc
     <script type="text/javascript" src='../planets/alien.js'></script>
     <style>
         body {
@@ -58,16 +54,16 @@
     <img src="../hub-img/alien.png" class="alien" id="alien">
 
 
-    <div class="grid">
-        <div><input type="button" class="cell" id="cell1" value="E"></div>
-        <div><input type="button" class="cell" id="cell2" value="E"></div>
-        <div><input type="button" class="cell" id="cell3" value="E"></div>
-        <div><input type="button" class="cell" id="cell4" value="E"></div>
-        <div><input type="button" class="cell" id="cell5" value="E"></div>
-        <div><input type="button" class="cell" id="cell6" value="E"></div>
-        <div><input type="button" class="cell" id="cell7" value="E"></div>
-        <div><input type="button" class="cell" id="cell8" value="E"></div>
-        <div><input type="button" class="cell" id="cell9" value="E"></div>
+    <div class="grid" id="grid">
+        <div><input type="button" class="cell" id="cell0" value="0" onclick="play(0)"></div>
+        <div><input type="button" class="cell" id="cell1" value="0" onclick="play(1)"></div>
+        <div><input type="button" class="cell" id="cell2" value="0" onclick="play(2)"></div>
+        <div><input type="button" class="cell" id="cell3" value="0" onclick="play(3)"></div>
+        <div><input type="button" class="cell" id="cell4" value="0" onclick="play(4)"></div>
+        <div><input type="button" class="cell" id="cell5" value="0" onclick="play(5)"></div>
+        <div><input type="button" class="cell" id="cell6" value="0" onclick="play(6)"></div>
+        <div><input type="button" class="cell" id="cell7" value="0" onclick="play(7)"></div>
+        <div><input type="button" class="cell" id="cell8" value="0" onclick="play(8)"></div>
     </div>
 </body>
 
