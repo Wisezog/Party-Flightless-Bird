@@ -3,12 +3,7 @@
 var currentIndex = 0; // Records the current/previous index to ensure the next is different.
 
 function insult(file) {
-<<<<<<< HEAD
     let insults = file.toString().split('\n')
-=======
-  
-    let insults = file.toString().split("\n")
->>>>>>> 19d5f1cf8ea48c10f74d8ffa2abef9ea78894a0a
 
     let index = Math.floor(Math.random() * insults.length);
 
@@ -20,4 +15,17 @@ function insult(file) {
     currentIndex = index;
 
     return insults[index];
+}
+
+/**
+ * Checks if location of the alien and ship
+ * @param {*} alien 
+ * @param {*} button 
+ * @returns 
+ */
+ function compareLocation(alien, button) {
+    if (alien.x > ship.x && alien.y > ship.y && alien.right < ship.right && alien.bottom < ship.bottom) {
+        return true;
+    }
+
 }
