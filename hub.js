@@ -27,31 +27,43 @@ function detectKey(key){
     }
 }
 
+/**
+ * This method moves the ship in a specific direction.
+ * @param {*} direction in which the ship will be moved in.
+ */
 function moveShip(direction){
     let ship = document.getElementById("ship");
     let positionY = Number((ship.style.top).replace("px",""));
     let positionX = Number((ship.style.left).replace("px",""));
+    //Retrieves current 'coordinates' of the ship.
+
     const moveAmount = 10;
+    //Increase this value to increase movement speed
+
     switch(direction){
         case "up":
             positionY = positionY - moveAmount;
             console.log("up: " + positionY);
             ship.style.top = positionY +"px";
+            //Moves the ship up.
             break;
         case "down":
             positionY = positionY + moveAmount;
             console.log("down: " + positionY);
             ship.style.top = positionY  +"px";
+            //Moves the ship down.
             break;
         case "left":
             positionX = positionX - moveAmount;
             console.log("left: " + positionX);
             ship.style.left = positionX +"px";
+            //Move the ship left.
             break;
         case "right":
             positionX = positionX + moveAmount;
             console.log("right: " + positionX);
             ship.style.left = positionX +"px";
+            //Move the ship right.
             break;
     }
 }
