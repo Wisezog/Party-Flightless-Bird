@@ -4,7 +4,7 @@
 <head>
 
     <title>Chat Room</title>
-    
+
     <link rel="stylesheet" href="../planet.css">
     <script type="text/javascript" src='./chat-room-planet.js'></script>
     <script type="text/javascript" src='../planets/alien.js'></script>
@@ -28,10 +28,38 @@
         .alien {
             z-index: 1000000;
             width: 5%;
-            position:fixed;
+            position: fixed;
             top: 50%;
             right: 80%;
             display: none;
+        }
+
+        .input {
+            position: fixed;
+            top: 50%;
+            right: 39%;
+            width: 20%;
+        }
+
+        .Eight-ball {
+            position: fixed;
+            top: 12%;
+            right: 40%;
+        }
+
+        .Answer {
+            color: white;
+            position: fixed;
+            display: flex;
+            z-index: 1000000;
+            top: 28%;
+            right: 46%;
+
+        }
+
+        .qna {
+            flex: 100%;
+            text-align: center;
         }
     </style>
 </head>
@@ -39,6 +67,14 @@
 <body>
     <img src="../hub-img/ship.png" class="ship" id="ship">
     <img src="../hub-img/alien.png" class="alien" id="alien">
+
+    <div id="qna">
+        <p class="Answer" id="Answer">Ask a Question</p>
+        <img src="./8-Ball.png" class="Eight-ball" id="Eight-ball">
+        <input type="text" class="input" id="Question">
+    </div>
+
+
 </body>
 
 </html>
