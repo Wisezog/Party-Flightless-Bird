@@ -41,7 +41,7 @@ function moveAlien(direction) {
             //Move the alien left.
             positionX = positionX - moveAmount;
             console.log("left: " + positionX);
-            alien.style.left = positionX + "%"; 
+            alien.style.left = positionX + "%";
             
             break;
         case "right":
