@@ -28,22 +28,30 @@ function detectKey(key){
 }
 
 function moveShip(direction){
-    let ship = document.getElementsByClassName("ship");
-    let positionY = (ship.style.top).replace("px","");
-    let positionX = (ship.style.left).replace("px","");
-
+    let ship = document.getElementById("ship");
+    let positionY = Number((ship.style.top).replace("px",""));
+    let positionX = Number((ship.style.left).replace("px",""));
+    const moveAmount = 10;
     switch(direction){
         case "up":
-            ship.style.top = (positionY + 0.01) +"px";
+            positionY = positionY - moveAmount;
+            console.log("up: " + positionY);
+            ship.style.top = positionY +"px";
             break;
         case "down":
-            ship.style.top = (positionY - 0.01) +"px";
+            positionY = positionY + moveAmount;
+            console.log("down: " + positionY);
+            ship.style.top = positionY  +"px";
             break;
         case "left":
-            ship.style.left = (positionX + 0.01) +"px";
+            positionX = positionX - moveAmount;
+            console.log("left: " + positionX);
+            ship.style.left = positionX +"px";
             break;
         case "right":
-            ship.style.left = (positionX - 0.01) +"px";
+            positionX = positionX + moveAmount;
+            console.log("right: " + positionX);
+            ship.style.left = positionX +"px";
             break;
     }
 }
