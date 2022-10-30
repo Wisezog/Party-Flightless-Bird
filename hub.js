@@ -1,30 +1,25 @@
+'use strict';
 
-
-function addWindowEvent(){
-   window.addEventListener('keydown', function (e) {
-    document.querySelector('a').innerHTML = `You pressed ${e.key}`;
-  }, false); 
-}
-
+window.addEventListener("keydown",detectKey);
 
 function detectKey(key){
-    alert("here");
+    
     switch(key.keyCode){
         case 38:
             //up arrow
-            moveShip(up);
+            moveShip("up");
             break;
         case 40:
             //down arrow
-            moveShip(down);
+            moveShip("down");
             break;
         case 37:
             //left arrow
-            moveShip(left);
+            moveShip("left");
             break;
         case 39:
             //right arrow  
-            moveShip(right);
+            moveShip("right");
             break;
         case 32:
             alert("Space pressed");
