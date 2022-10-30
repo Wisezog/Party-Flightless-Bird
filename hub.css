@@ -1,52 +1,51 @@
 body {
-    background-image: url('hub-img/hub.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: black;
-    background-position: 50%;
-    background-size: 75%;
-    overflow: hidden;
-  }
+  background-image: url('hub-img/hub.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: black;
+  background-position: 50%;
+  background-size: 75%;
+  overflow: hidden;
+}
 
-.ship{
-    z-index: 1000000;
-    width: 10%;
-    position: relative;
-  }
-  
+.ship {
+  z-index: 1000000;
+  width: 10%;
+  position: relative;
+}
+
 
 .planet1 {
-    position: fixed;
-    bottom: 60%;
-    right: -25%;
-    width: 850px;
-  }
+  position: fixed;
+  bottom: 60%;
+  right: -25%;
+  width: 850px;
+}
 
-  .planet2 {
-    position: fixed;
-    bottom: 65%;
-    right: 40%;
-    width: 250px;
-  }
+.planet2 {
+  position: fixed;
+  bottom: 65%;
+  right: 40%;
+  width: 250px;
+}
 
-  .planet3 {
-    position: fixed;
-    bottom: 10%;
-    right: 52%;
-    width: 400px;
-  }
+.planet3 {
+  position: fixed;
+  bottom: 10%;
+  right: 52%;
+  width: 400px;
+}
 
-  .planet4 {
-    position: fixed;
-    bottom: 45%;
-    right: 75%;
-    width: 400px;
-  }
+.planet4 {
+  position: fixed;
+  bottom: 45%;
+  right: 75%;
+  width: 400px;
+}
 
-  .planet5 {
-    position: fixed;
-    bottom: 5%;
-    right: -5%;
-    width: 600px;
-  }
-  
+.planet5 {
+  position: fixed;
+  bottom: 5%;
+  right: -5%;
+  width: 600px;
+}

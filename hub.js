@@ -1,15 +1,24 @@
 'use strict';
 
-window.addEventListener("keydown",detectKey);
-//Listens for key presses.
+window.addEventListener("keydown", detectKey);
+//Listens for key presses. 
+
+
+
+function defaultShip(){
+    let ship = document.getElementById("ship");
+    ship.style.left = "500px";
+    ship.style.top = "300px";    
+}
+
 
 /**
  * Checks which key was pressed, and calls any associated functionality.
  * @param {*} event the event of a key press being detected. 
  */
-function detectKey(event){
-    
-    switch(event.keyCode){
+function detectKey(event) {
+
+    switch (event.keyCode) {
         case 38:
             //up arrow
             moveShip("up");
@@ -30,7 +39,7 @@ function detectKey(event){
             //Space bar
             console.log("Space Pressed");
             visitPlanet();
-            break;             
+            break;
     }
 }
 
@@ -38,89 +47,82 @@ function detectKey(event){
  * This method moves the ship in a specific direction.
  * @param {*} direction in which the ship will be moved in.
  */
-function moveShip(direction){
+function moveShip(direction) {
     let ship = document.getElementById("ship");
-    let positionY = Number((ship.style.top).replace("px",""));
-    let positionX = Number((ship.style.left).replace("px",""));
+    let positionY = Number((ship.style.top).replace("px", ""));
+    let positionX = Number((ship.style.left).replace("px", ""));
     //Retrieves current 'coordinates' of the ship.
 
     const moveAmount = 10;
     //Increase this value to increase movement speed
 
-    switch(direction){
+    switch (direction) {
         case "up":
             positionY = positionY - moveAmount;
             console.log("up: " + positionY);
-            ship.style.top = positionY +"px";
+            ship.style.top = positionY + "px";
             //Moves the ship up.
             break;
         case "down":
             positionY = positionY + moveAmount;
             console.log("down: " + positionY);
-            ship.style.top = positionY  +"px";
+            ship.style.top = positionY + "px";
             //Moves the ship down.
             break;
         case "left":
             positionX = positionX - moveAmount;
             console.log("left: " + positionX);
-            ship.style.left = positionX +"px";
+            ship.style.left = positionX + "px";
             //Move the ship left.
             break;
         case "right":
             positionX = positionX + moveAmount;
             console.log("right: " + positionX);
-            ship.style.left = positionX +"px";
+            ship.style.left = positionX + "px";
             //Move the ship right.
             break;
     }
 }
 
-function visitPlanet(){
+function visitPlanet() {
     let ship = document.getElementById("ship");
-    let shipCoordinates = [ship.offsetLeft,ship.offsetTop]
-
+    let shipHitBox = ship.getBoundingClientRect();
+    
     let planet1 = document.getElementById("planet1");
-    let planet1Coordinates = [planet1.offsetLeft,planet1.offsetTop]
+    let planet1HitBox = planet1.getBoundingClientRect();
 
     let planet2 = document.getElementById("planet2");
-    let planet2Coordinates = [planet2.offsetLeft,planet2.offsetTop]
+    let planet2HitBox = planet2.getBoundingClientRect();
 
     let planet3 = document.getElementById("planet3");
-    let planet3Coordinates = [planet3.offsetLeft,planet3.offsetTop]
+    let planet3HitBox = planet3.getBoundingClientRect();
 
     let planet4 = document.getElementById("planet4");
-    let planet4Coordinates = [planet4.offsetLeft,planet4.offsetTop]
+    let planet4HitBox = planet4.getBoundingClientRect();
 
     let planet5 = document.getElementById("planet5");
-    let planet5Coordinates = [planet5.offsetLeft,planet5.offsetTop]
+    let planet5HitBox = planet5.getBoundingClientRect();
 
-    if(compareLocation(shipCoordinates,planet1Coordinates)){
+
+    if (compareLocation(shipHitBox, planet1HitBox)) {
         window.location.href = "./party-planet/party-planet.html";
-    }else if(compareLocation(shipCoordinates,planet2Coordinates)){
+    } else if (compareLocation(shipHitBox, planet2HitBox)) {
         window.location.href = "./snake-planet/snake-planet.html";
-    }else if(compareLocation(shipCoordinates,planet3Coordinates)){
+    } else if (compareLocation(shipHitBox, planet3HitBox)) {
         window.location.href = "./insult-planet/insult-planet.html";
-    }else if(compareLocation(shipCoordinates,planet4Coordinates)){
+    } else if (compareLocation(shipHitBox, planet4HitBox)) {
         window.location.href = "./chat-room-planet/chat-room-planet.html";
-    }else if(compareLocation(shipCoordinates,planet5Coordinates)){
+    } else if (compareLocation(shipHitBox, planet5HitBox)) {
         window.location.href = "./connect-4-planet/connect-4-planet.html";
-    }else{
+    } else {
         console.log("No planet found")
     }
-    
+
 }
 
-function compareLocation(ship,planet){
-    let matching = false;
-    const range = 20;
-
-    for(let i = 0; i < 2; i++){
-        if(ship[i] <= (planet[i]+ range) && ship[i] >= (planet[i]- range)){
-            matching = true;
-        }else{
-            matching = false
-        }
+function compareLocation(ship, planet) {
+    if(ship.x > planet.x && ship.y > planet.y && ship.right < planet.right && ship.bottom < planet.bottom){
+        return true;
     }
-    return matching;
-    
+
 }
