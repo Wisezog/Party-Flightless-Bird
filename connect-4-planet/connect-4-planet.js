@@ -40,8 +40,15 @@ function checkWin() {
     if (win){
 
     }
+
+    makeArray()
 }
 
 function callError() {
 
+}
+
+function makeArray(){
+
+    document.getElementsByClassName('grid') = array;
 }
